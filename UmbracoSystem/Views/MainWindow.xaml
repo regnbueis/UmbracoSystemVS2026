@@ -1,0 +1,38 @@
+﻿<Window x:Class="UmbracoSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UmbracoSystem"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1000" Background="#f1f0ee" ResizeMode="CanMinimize">
+    <Grid Margin="0,10,0,-16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="437*"/>
+            <RowDefinition Height="353*"/>
+        </Grid.RowDefinitions>
+        <DockPanel LastChildFill="True" Grid.RowSpan="2">
+            <!-- Navigation øverst -->
+            <Grid x:Name="gridNavigation" DockPanel.Dock="Top" Height="71" Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="Images\umbraco_wide_logo_blue.png" Stretch="Uniform" MouseDown="Image_MouseDown" Grid.Column="0" Margin="15,-2,10,-3"/>
+                <Button x:Name="btnØvelser" Grid.Column="1" Content="Øvelser" Click="btnØvelser_Click"/>
+                <Button x:Name="btnEvents" Grid.Column="2" Content="Events" IsEnabled="False" Click="btnEvents_Click"/>
+                <Button x:Name="btnAltAktiv" Grid.Column="3" Content="Alternative aktivitet" IsEnabled="False"/>
+                <Button x:Name="btnProfil" Grid.Column="4" Content="Profil" IsEnabled="False"/>
+                <Button x:Name="btnLog" Grid.Column="5" Content="Log ind/ud" IsEnabled="False"/>
+            </Grid>
+
+            <!-- Indhold -->
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
+
+    </Grid>
+</Window>
