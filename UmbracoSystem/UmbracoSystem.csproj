@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Images\ExcorciseBanner.png" />
+    <None Remove="Views\Images\FrontPageBanner1.png" />
+    <None Remove="Views\Images\office-workers-do-yoga-exercises-260nw-2450907999.png" />
+    <None Remove="Views\Images\SkureHans.png" />
     <None Remove="Views\Images\umbraco_wide_logo_blue.png" />
   </ItemGroup>
 
@@ -17,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Views\Images\ExcorciseBanner.png" />
+    <Resource Include="Views\Images\FrontPageBanner1.png" />
+    <Resource Include="Views\Images\office-workers-do-yoga-exercises-260nw-2450907999.png" />
+    <Resource Include="Views\Images\SkureHans.png" />
     <Resource Include="Views\Images\umbraco_wide_logo_blue.png" />
   </ItemGroup>
 

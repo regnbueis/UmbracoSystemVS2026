@@ -7,33 +7,48 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1000"
       Title="ExercisePicker" Background="#f1f0ee">
+    <Grid Margin="0,0,0,557">
+        <Grid Margin="10,10,-10,-10">
+            <Image Source="/Views/Images/ExcorciseBanner.png" Width="640" Height="140" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" Margin="10"/>
+        </Grid>
+        <Grid Margin="36,309,34,-511">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="listbox" Margin="0,0,200,0" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text=""/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding TagName}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Margin="403,0,10,0" Grid.ColumnSpan="2" ItemsSource="{Binding FilteredExerciseList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text=""/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBoxTags" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}"  Grid.Column="0">
-            <ListBox.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text=""/>
-                    <TextBlock Text=" "/>
-                    <TextBlock Text="{Binding TagName}"/>
-                </StackPanel>
-            </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox x:Name="listBoxExercises" ItemsSource="{Binding FilteredExerciseList}" Grid.Column="1">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text=""/>
-                        <TextBlock Text=" "/>
-                        <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        </Grid>
+        <Grid Margin="10,205,-10,-131">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="443*"/>
+                <ColumnDefinition Width="557*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Tryk op en type, for at finde en øvelse" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Width="352" Height="45" FontSize="20"/>
+            <Label Content="Tryk på den ønskede øvelse" Margin="101,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="336" Height="45" FontSize="20" Grid.Column="1"/>
+            <Button x:Name="Test" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="479,52,0,0" VerticalAlignment="Top" Height="22" Width="22" Click="Test_Click"/>
+
+        </Grid>
     </Grid>
 </Page>

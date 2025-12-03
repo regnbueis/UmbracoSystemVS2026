@@ -26,5 +26,13 @@ namespace UmbracoSystem.Views
             DataContext = mvm;
             mvm.StartUp();
         }
+
+        private void Test_Click(object sender, RoutedEventArgs e)
+        {
+
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(new ExercisePage());
+
+        }
     }
 }

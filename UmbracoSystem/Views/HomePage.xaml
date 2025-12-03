@@ -9,7 +9,7 @@
                  d:DesignHeight="800" d:DesignWidth="1000"
 Title="HomePage" Background="#f1f0ee">
     <Grid>
-        <Image Source="/Views/Images/umbraco_wide_logo_blue.png"
+        <Image Source="/Views/Images/FrontPageBanner1.png"
    Width="640" Height="140"
    HorizontalAlignment="Center"
    VerticalAlignment="Top"
