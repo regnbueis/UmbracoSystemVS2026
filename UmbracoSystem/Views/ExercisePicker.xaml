@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="listbox"  Margin="0,0,40,520" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
+            <ListBox x:Name="listbox"  Margin="0,0,40,530" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
