@@ -34,5 +34,6 @@ namespace UmbracoSystem.Views
             mainWindow.MainFrame.Navigate(new ExercisePage());
 
         }
+
     }
 }
