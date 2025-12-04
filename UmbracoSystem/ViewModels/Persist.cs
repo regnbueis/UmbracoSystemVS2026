@@ -17,12 +17,14 @@ namespace UmbracoSystem.ViewModels
             exercises = new List<Exercise>();
             events = new List<Event>();
             altWorkTypes = new List<AltWorkType>();
+
+           
+            string path = Path.Combine(AppContext.BaseDirectory, "ContentPersistence.txt");
+
             try
             {
-                using StreamReader sr = new StreamReader("ContentPersistence.txt");
+                using StreamReader sr = new StreamReader(path);
                 {
-
-
                     int exerciseId = 0;
                     int eventId = 0;
                     int altWorkTypesId = 0;
@@ -30,36 +32,35 @@ namespace UmbracoSystem.ViewModels
                     while (!sr.EndOfStream)
                     {
                         string line = sr.ReadLine();
+
                         string[] parts = line.Split("---");
 
-                        if (int.Parse(parts[1]) >= 100 && int.Parse(parts[1]) <= 299)
+                        if (int.TryParse(parts[1], out var id))
                         {
-                            Exercise exercise = new Exercise(parts[0], int.Parse(parts[1]), parts[2], int.Parse(parts[3]), parts[4], parts[5]);
-
-                            exercises.Add(exercise);
-
-                            if (exercise.ExerciseId > exerciseId)
-                                exerciseId = exercise.ExerciseId;
-                        }
-                        else if (int.Parse(parts[1]) >= 400 && int.Parse(parts[1]) <= 899)
-                        {
-                            Event _event = new Event(parts[0], int.Parse(parts[1]), parts[2], DateTime.Parse(parts[3]), parts[4]);
-
-                            events.Add(_event);
-
-                            if (_event.EventId > eventId)
-                                eventId = _event.EventId;
-                        }
-                        else if (int.Parse(parts[1]) >= 300 && int.Parse(parts[1]) <= 399)
-                        {
-                            AltWorkType altWorkType = new AltWorkType(parts[0], int.Parse(parts[1]), parts[2], parts[3]);
-
-                            altWorkTypes.Add(altWorkType);
-
-                            if (altWorkType.AltWorkTypeId > altWorkTypesId)
-                                altWorkTypesId = altWorkType.AltWorkTypeId;
+                            if (id >= 100 && id <= 299 && parts.Length >= 6 && int.TryParse(parts[3], out var minutes))
+                            {
+                                Exercise exercise = new Exercise(parts[0], id, parts[2], minutes, parts[4], parts[5]);
+                                exercises.Add(exercise);
+                                if (exercise.ExerciseId > exerciseId)
+                                    exerciseId = exercise.ExerciseId;
+                            }
+                            else if (id >= 400 && id <= 899 && parts.Length >= 5 && DateTime.TryParse(parts[3], out var date))
+                            {
+                                Event _event = new Event(parts[0], id, parts[2], date, parts[4]);
+                                events.Add(_event);
+                                if (_event.EventId > eventId)
+                                    eventId = _event.EventId;
+                            }
+                            else if (id >= 300 && id <= 399 && parts.Length >= 4)
+                            {
+                                AltWorkType altWorkType = new AltWorkType(parts[0], id, parts[2], parts[3]);
+                                altWorkTypes.Add(altWorkType);
+                                if (altWorkType.AltWorkTypeId > altWorkTypesId)
+                                    altWorkTypesId = altWorkType.AltWorkTypeId;
+                            }
                         }
                     }
+
                     Exercise.SetId(exerciseId);
                     Event.SetId(eventId);
                     AltWorkType.SetId(altWorkTypesId);
@@ -73,9 +74,11 @@ namespace UmbracoSystem.ViewModels
 
         public static void Save()
         {
+            string path = Path.Combine(AppContext.BaseDirectory, "ContentPersistence.txt");
+
             try
             {
-                using StreamWriter sw = new StreamWriter("ContentPersistence.txt");
+                using StreamWriter sw = new StreamWriter(path);
                 {
                     foreach (Exercise exercise in exercises)
                         sw.WriteLine($"{exercise.Title}---{exercise.ExerciseId}---{exercise.Description}---{exercise.TimeSpentInMinutes}---{exercise.ImageSource}---{exercise.Tagging}");
@@ -85,10 +88,12 @@ namespace UmbracoSystem.ViewModels
                         sw.WriteLine($"{altWorkType.Title}---{altWorkType.AltWorkTypeId}---{altWorkType.Description}---{altWorkType.ImageSource}");
                 }
             }
-            catch
+            catch (IOException)
             {
-                throw new Exception("Save not succesful");
+               
             }
         }
     }
+
+
 }
