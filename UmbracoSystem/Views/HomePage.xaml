@@ -21,7 +21,7 @@ Title="HomePage" Background="#f1f0ee">
                 <ListBox.ItemTemplate>
                     <DataTemplate>                        
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="25" Text="{Binding Name}"/>
+                            <TextBlock FontSize="20" Text="{Binding Name}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -35,16 +35,15 @@ Title="HomePage" Background="#f1f0ee">
                 <Label Content="Næste event!" Margin="0,20,0,0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
                 <TextBlock TextWrapping="Wrap"
                Text="{Binding NextEvent.Title}"
-               FontSize="25" Margin="25,30,20,10"/>
+               FontSize="20" Margin="25,30,20,10"/>
                 <TextBlock TextWrapping="Wrap"
                Text="{Binding NextEvent.Date}"
-               FontSize="25" Margin="25,5"/>
+               FontSize="20" Margin="25,5"/>
                 <TextBlock TextWrapping="Wrap"
                Text="{Binding NextEvent.Description}"
-               FontSize="25" Margin="25,5"/>
+               FontSize="20" Margin="25,5"/>
                 <Image Source="{Binding NextEvent.ImageSource}" Height="100" Width="100"/>
             </StackPanel>
         </Border>
-
     </Grid>
 </Page>

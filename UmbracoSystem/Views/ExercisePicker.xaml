@@ -9,29 +9,27 @@
       Title="ExercisePicker" Background="#f1f0ee">
     <Grid >
         <Image Source="/Views/Images/ExcorciseBanner.png" Width="640" Height="140"  HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" Margin="10"/>
-        <Grid Margin="20,309,34,-511">
+        <Grid Margin="20,260,34,-511">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="473"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="listbox"  Margin="0,0,40,530" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
+            <ListBox x:Name="listbox" Padding="25" Margin="0,0,49,531" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text=""/>
-                            <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding TagName}"/>
+                        <StackPanel  Orientation="Horizontal">
+                            <TextBlock FontSize="20" Padding="2" Text="{Binding TagName}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <ListBox Margin="512,0,-14,530" Grid.ColumnSpan="2" ItemsSource="{Binding FilteredExerciseList}" BorderThickness="2" BorderBrush="#FF283A97">
+            <ListBox Padding="20" Margin="512,0,-14,531" Grid.ColumnSpan="2" ItemsSource="{Binding FilteredExerciseList}" BorderThickness="2" BorderBrush="#FF283A97">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text=""/>
                             <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -41,11 +39,14 @@
         <Grid Margin="10,205,-10,-131">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="443*"/>
-                <ColumnDefinition Width="557*"/>
+                <ColumnDefinition Width="252*"/>
+                <ColumnDefinition Width="36*"/>
+                <ColumnDefinition Width="85*"/>
+                <ColumnDefinition Width="184*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Tryk op en type, for at finde en øvelse" HorizontalAlignment="Left" Margin="20,29,0,0" VerticalAlignment="Top" Width="352" Height="45" FontSize="20"/>
-            <Label Content="Tryk på den ønskede øvelse" Margin="0,29,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="336" Height="45" FontSize="20" Grid.Column="1"/>
-            <Button x:Name="Test" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="479,52,0,0" VerticalAlignment="Top" Height="22" Width="22" Click="Test_Click"/>
+            <Label FontSize="25" FontWeight="Bold" Content="Tryk på den ønskede øvelse" Margin="152,-8,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Grid.ColumnSpan="4"/>
+            <Label FontSize="25" FontWeight="Bold" Content="Vælg Muskelgruppe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,-6,0,0"  />
+            <Button x:Name="Test" Grid.Column="4" Content="Button" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Height="22" Width="22" Click="Test_Click"/>
         </Grid>
     </Grid>
 </Page>
