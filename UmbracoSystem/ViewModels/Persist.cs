@@ -19,11 +19,11 @@ namespace UmbracoSystem.ViewModels
             altWorkTypes = new List<AltWorkType>();
 
            
-            string path = Path.Combine(AppContext.BaseDirectory, "ContentPersistence.txt");
+            string path = Path.Combine(AppContext.BaseDirectory, "Resources/ContentPersistence.txt");
 
             try
             {
-                using StreamReader sr = new StreamReader(path);
+                using StreamReader sr = new StreamReader("Resources/ContentPersistence.txt");
                 {
                     int exerciseId = 0;
                     int eventId = 0;

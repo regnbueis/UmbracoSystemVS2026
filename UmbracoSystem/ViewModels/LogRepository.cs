@@ -17,7 +17,7 @@ namespace UmbracoSystem.ViewModels
             {
                 int logId = 0;
 
-                using StreamReader sr = new StreamReader("LogPersistence.txt");
+                using StreamReader sr = new StreamReader("Resources/LogPersistence.txt");
                 {
                     string line = sr.ReadLine();
 

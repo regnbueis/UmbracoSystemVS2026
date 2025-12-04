@@ -19,7 +19,7 @@ namespace UmbracoSystem.ViewModels
             {
                 int employeeid = 0;
 
-                using StreamReader sr = new StreamReader("EmployeePersistence.txt");
+                using StreamReader sr = new StreamReader("Resources/EmployeePersistence.txt");
                 {
                     string line = sr.ReadLine();
 
