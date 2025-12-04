@@ -17,11 +17,11 @@ Title="HomePage" Background="#f1f0ee">
    Margin="10"/>
 
         <Border Background="White" BorderBrush="#283a97" BorderThickness="2" Margin="20,176,540,20">
-            <ListBox x:Name="lbBoxTopFive" ItemsSource="{Binding Employees}" Margin="20,130" BorderBrush="{x:Null}">
+            <ListBox x:Name="lbBoxTopFive" ItemsSource="{Binding Employees}" Margin="20,100" BorderBrush="{x:Null}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>                        
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="20" Text="{Binding Name}"/>
+                            <TextBlock Padding="0,0,0,10" FontSize="20" Text="{Binding Name}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

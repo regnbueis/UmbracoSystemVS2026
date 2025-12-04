@@ -14,11 +14,11 @@
                 <ColumnDefinition Width="473"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="listbox" Padding="25" Margin="0,0,49,531" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
+            <ListBox x:Name="listbox" Padding="27" Margin="0,0,49,531" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel  Orientation="Horizontal">
-                            <TextBlock FontSize="20" Padding="2" Text="{Binding TagName}"/>
+                        <StackPanel  Orientation="Horizontal">                            
+                        <TextBlock FontSize="20" Padding="0,0,0,10" Text="{Binding TagName}"/>                        
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -44,9 +44,9 @@
                 <ColumnDefinition Width="85*"/>
                 <ColumnDefinition Width="184*"/>
             </Grid.ColumnDefinitions>
-            <Label FontSize="25" FontWeight="Bold" Content="Tryk på den ønskede øvelse" Margin="152,-8,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Grid.ColumnSpan="4"/>
-            <Label FontSize="25" FontWeight="Bold" Content="Vælg Muskelgruppe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,-6,0,0"  />
-            <Button x:Name="Test" Grid.Column="4" Content="Button" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Height="22" Width="22" Click="Test_Click"/>
+            <Label FontSize="30" FontWeight="Bold" Content="Tryk på den ønskede øvelse" Margin="112,-6,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" Grid.ColumnSpan="4"/>
+            <Label FontSize="30" FontWeight="Bold" Content="Vælg Muskelgruppe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,-6,0,0"  />
+            <Button x:Name="Test" Grid.Column="4" Content="Button" HorizontalAlignment="Left" Margin="136,21,0,0" VerticalAlignment="Top" Height="22" Width="22" Click="Test_Click"/>
         </Grid>
     </Grid>
 </Page>
