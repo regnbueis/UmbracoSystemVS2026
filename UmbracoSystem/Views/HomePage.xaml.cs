@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using UmbracoSystem.Views;
 using UmbracoSystem.ViewModels;
 
+
 namespace UmbracoSystem.Views
 {
     /// <summary>
@@ -20,12 +21,14 @@ namespace UmbracoSystem.Views
     /// </summary>
     public partial class HomePage : Page
     {
-        MainViewModel mvm = new MainViewModel();
-        public HomePage()
+        private readonly MainViewModel mvm;
+        // Fra MainWindow
+        public HomePage(MainViewModel mvm)
         {
             InitializeComponent();
-            DataContext = mvm;
-            mvm.StartUp();
+            this.mvm = mvm;
+            DataContext = this.mvm;
         }
+
     }
 }
