@@ -9,11 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\ContentPersistence.txt" />
+    <None Remove="Resources\EmployeePersistence.txt" />
+    <None Remove="Resources\LogPersistence.txt" />
     <None Remove="Views\Images\ExcorciseBanner.png" />
     <None Remove="Views\Images\FrontPageBanner1.png" />
     <None Remove="Views\Images\office-workers-do-yoga-exercises-260nw-2450907999.png" />
     <None Remove="Views\Images\SkureHans.png" />
     <None Remove="Views\Images\umbraco_wide_logo_blue.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\ContentPersistence.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\EmployeePersistence.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\LogPersistence.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
