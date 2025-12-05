@@ -10,8 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UmbracoSystem.Models;
 using UmbracoSystem.ViewModels;
-
 namespace UmbracoSystem.Views
 {
     /// <summary>
@@ -20,6 +20,7 @@ namespace UmbracoSystem.Views
     public partial class ExercisePicker : Page
     {
         MainViewModel mvm = new MainViewModel();
+
         public ExercisePicker()
         {
             InitializeComponent();
@@ -34,5 +35,25 @@ namespace UmbracoSystem.Views
             mainWindow.MainFrame.Navigate(new ExercisePage());
 
         }
+
+        private void Tags_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // SelectedTag has already been updated via SelectedValue binding.
+            // Trigger recompute of the right-hand list using your existing setter logic:
+            mvm.FilteredExerciseList = mvm.GetFilteredExerciseList();
+        }
+
+        private void ExercisesList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var exercise = ExerciseList.SelectedItem as Exercise;
+            if (exercise == null)
+                return;
+
+            var mainWindow = (MainWindow)Application.Current.MainWindow;
+            mainWindow.MainFrame.Navigate(new ExercisePage(exercise));
+
+
+        }
+
     }
 }

@@ -19,12 +19,21 @@ namespace UmbracoSystem
     public partial class MainWindow : Window
     {
         MainViewModel mvm = new MainViewModel();
+
+        //Genbruger homepage istedet for forskelige instanser
+        private readonly HomePage homePage;
         public MainWindow()
         {
             InitializeComponent();
             DataContext = mvm;
-            MainFrame.Navigate(new HomePage());
+
+            // En instans, bruger samme mvm
+            homePage = new HomePage(mvm);
+
+            // Starter op på homepage
+            MainFrame.Navigate(homePage);            
             mvm.StartUp();
+
         }
 
         private void btnØvelser_Click(object sender, RoutedEventArgs e)
@@ -38,7 +47,7 @@ namespace UmbracoSystem
         }
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MainFrame.Navigate(new HomePage());
+            MainFrame.Navigate(homePage);
         }
     }
 }

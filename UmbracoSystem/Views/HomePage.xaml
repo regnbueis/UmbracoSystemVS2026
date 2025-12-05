@@ -4,9 +4,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UmbracoSystem.Views"
-      xmlns:ViewModels="clr-namespace:UmbracoSystem.ViewModels" x:Class="UmbracoSystem.Views.HomePage"
+      xmlns:ViewModels="clr-namespace:UmbracoSystem.ViewModels" 
+      x:Class="UmbracoSystem.Views.HomePage"
       mc:Ignorable="d" 
-                 d:DesignHeight="800" d:DesignWidth="1000"
+                     d:DesignHeight="800" d:DesignWidth="1000"
 Title="HomePage" Background="#f1f0ee">
     <Grid>
         <Image Source="/Views/Images/FrontPageBanner1.png"
@@ -15,35 +16,35 @@ Title="HomePage" Background="#f1f0ee">
    VerticalAlignment="Top"
    Stretch="UniformToFill"
    Margin="10"/>
-        <Border BorderBrush="#283a97" BorderThickness="2" Margin="20,176,540,20">
-            <ListBox x:Name="lbBoxTopFive" ItemsSource="{Binding Employees}" Margin="-2,132,-2,132">
+
+        <Border Background="White" BorderBrush="#283a97" BorderThickness="2" Margin="20,176,540,20">
+            <ListBox x:Name="lbBoxTopFive" ItemsSource="{Binding Employees}" Margin="20,100" BorderBrush="{x:Null}">
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate>                        
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text=""/>
-                            <TextBlock Text=" "/>
-                            <TextBlock Text="{Binding Name}"/>
+                            <TextBlock Padding="0,0,0,10" FontSize="20" Text="{Binding Name}"/>                           
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Border>
-
-        <Border BorderBrush="#283a97" BorderThickness="2" Margin="532,176,20,20">
+        <StackPanel>
+            <TextBlock Margin="20,200,540,20" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"> Ugens TopScore!</TextBlock>
+        </StackPanel>
+        <Border Background="white" BorderBrush="#283a97" BorderThickness="2" Margin="532,176,20,20">
             <StackPanel>
-                <Label Content="Næste event!" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Label Content="Næste event!" Margin="0,20,0,0" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
                 <TextBlock TextWrapping="Wrap"
                Text="{Binding NextEvent.Title}"
-               FontSize="25" Margin="5"/>
+               FontSize="20" Margin="25,30,20,10"/>
                 <TextBlock TextWrapping="Wrap"
                Text="{Binding NextEvent.Date}"
-               FontSize="25" Margin="5"/>
+               FontSize="20" Margin="25,5"/>
                 <TextBlock TextWrapping="Wrap"
                Text="{Binding NextEvent.Description}"
-               FontSize="25" Margin="5"/>
+               FontSize="20" Margin="25,5"/>
                 <Image Source="{Binding NextEvent.ImageSource}" Height="100" Width="100"/>
             </StackPanel>
         </Border>
-
     </Grid>
 </Page>

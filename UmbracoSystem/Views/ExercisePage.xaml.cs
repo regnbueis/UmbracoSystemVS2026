@@ -10,7 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Web;
 using UmbracoSystem.Views;
+using UmbracoSystem.Models;
 using UmbracoSystem.ViewModels;
 
 namespace UmbracoSystem.Views
@@ -26,5 +28,21 @@ namespace UmbracoSystem.Views
             InitializeComponent();
             DataContext = mvm;
         }
+
+        public ExercisePage(Exercise selectedExercise)
+        {
+            InitializeComponent();
+            DataContext = (object)selectedExercise ?? mvm; // fallback if null
+
+        }
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            Video.Play();
+        }
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            Video.Pause();
+        }
     }
 }
+
