@@ -14,22 +14,29 @@
                 <ColumnDefinition Width="473"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="listbox" Padding="27" Margin="0,0,49,531" ItemsSource="{Binding Tagslist}" SelectedItem="{Binding SelectedTag}" BorderThickness="2" BorderBrush="#FF283A97">
+            <ListBox x:Name="listbox" Padding="27" Margin="0,0,49,531" 
+                     ItemsSource="{Binding Tagslist}"
+                     SelectedValuePath="TagName"
+                     SelectedValue="{Binding SelectedTag, UpdateSourceTrigger=PropertyChanged}"
+                     SelectionChanged="Tags_SelectionChanged"
+                     BorderThickness="2" BorderBrush="#FF283A97">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel  Orientation="Horizontal">                            
-                        <TextBlock FontSize="20" Padding="0,0,0,10" Text="{Binding TagName}"/>                        
+                        <StackPanel  Orientation="Horizontal">
+                            <TextBlock FontSize="20" Padding="0,0,0,10" Text="{Binding TagName}"/>                        
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <ListBox Padding="20" Margin="512,0,-14,531" Grid.ColumnSpan="2" ItemsSource="{Binding FilteredExerciseList}" BorderThickness="2" BorderBrush="#FF283A97">
+            <ListBox x:Name="ExerciseList"
+                     Padding="20" Margin="512,0,-14,531" Grid.ColumnSpan="2" 
+                     ItemsSource="{Binding FilteredExerciseList}" 
+                     MouseDoubleClick="ExercisesList_MouseDoubleClick"
+                     BorderThickness="2" BorderBrush="#FF283A97">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text=""/>
-                            <TextBlock Text=" "/>
-                            <TextBlock FontSize="20" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        <StackPanel Orientation="Horizontal">                            
+                            <TextBlock FontSize="20" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

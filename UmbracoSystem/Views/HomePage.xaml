@@ -22,7 +22,7 @@ Title="HomePage" Background="#f1f0ee">
                 <ListBox.ItemTemplate>
                     <DataTemplate>                        
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Padding="0,0,0,10" FontSize="20" Text="{Binding Name}"/>
+                            <TextBlock Padding="0,0,0,10" FontSize="20" Text="{Binding Name}"/>                           
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

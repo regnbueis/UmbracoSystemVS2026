@@ -17,14 +17,28 @@
         />
         <Grid>
             <Image Source="/Views/Images/office-workers-do-yoga-exercises-260nw-2450907999.png" Width="640" Height="140" HorizontalAlignment="Center" VerticalAlignment="Top" Stretch="UniformToFill" Margin="10"/>
-            <TextBlock HorizontalAlignment="center" Margin="0,165,0,0" TextWrapping="Wrap" Text="Navn på Øvelse Her" VerticalAlignment="Top" TextAlignment="Center" FontSize="30" FontWeight="Bold"/>
-            <TextBlock HorizontalAlignment="left" TextAlignment="left"  Margin="532,229,85,0" TextWrapping="Wrap" Text="Estimeret tidsforbrug: 818min." VerticalAlignment="Top"  FontWeight="SemiBold" FontSize="22" Height="30" Width="430"/>
+            <TextBlock Text="{Binding Title, FallbackValue='Navn På Øvelse'}" HorizontalAlignment="center" Margin="0,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" TextAlignment="Center" FontSize="30" FontWeight="Bold"/>
+            <TextBlock Text="{Binding TimeSpentInMinutes, StringFormat='Estimeret tidsforbrug: {0} min.',FallbackValue='Estimeret tidsforbrug: Fejl'}" HorizontalAlignment="left" TextAlignment="left"  Margin="532,229,85,0" TextWrapping="Wrap" VerticalAlignment="Top"  FontWeight="SemiBold" FontSize="22" Height="30" Width="430"/>
             <Border HorizontalAlignment="Left" Width="425" Background="White"  Margin="20,260,539,20" BorderThickness="2" BorderBrush="#FF283A97" >
-                <TextBlock Padding="25" TextWrapping="Wrap" Text="En lang forklaring på hvor hvordan man skal lave denne øvelse og muligvis fortælle hvor dum man kan se ud når man laver defm men sørge for at det opfylder alle krav for at få en sunderer krop og sjæl det e med vilje jeg ikke har sat punktum eller ngoet men det kan selvfølelig formatere dette er bare for at komme med et eksempel på noget der ligner tekst" FontSize="20"/>
+                <TextBlock x:Name="ExerciseDescription" Padding="25" TextWrapping="Wrap" Text="{Binding Description, FallbackValue='(En lang forklaring på hvor hvordan man skal lave denne øvelse og muligvis fortælle hvor dum man kan se ud når man laver defm men sørge for at det opfylder alle krav for at få en sunderer krop og sjæl det e med vilje jeg ikke har sat punktum eller ngoet men det kan selvfølelig formatere dette er bare for at komme med et eksempel på noget der ligner tekst)'}" FontSize="20"/>
             </Border>
             <Border BorderThickness="2" BorderBrush="#FF283A97" Margin="532,260,20,20" Background="white">
-            <Image Source="/Views/Images/SkureHans.png"/>
+                <MediaElement
+                  x:Name="Video"
+                  Source="{Binding ImageSource}"
+                  UnloadedBehavior="Stop"
+                  Visibility="Visible"
+                  Margin="5"
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  ScrubbingEnabled="True"
+                  Volume="0.3" LoadedBehavior="Manual" 
+                  />
+                <!--<Image Source="{Binding ImageSource}"/>-->
+                <!--<Image Source="/Views/Images/SkureHans.png">-->
             </Border>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="250, 30"  Width="150" Height="30" Name="btnPlay" Click="btnPlay_Click" >Play</Button>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50, 30"  Width="150" Height="30" Name="btnPause" Click="btnPause_Click" >Pause</Button>
         </Grid>
     </Grid>
 </Page>
