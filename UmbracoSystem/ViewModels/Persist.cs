@@ -18,9 +18,6 @@ namespace UmbracoSystem.ViewModels
             events = new List<Event>();
             altWorkTypes = new List<AltWorkType>();
 
-           
-            string path = Path.Combine(AppContext.BaseDirectory, "Resources/ContentPersistence.txt");
-
             try
             {
                 using StreamReader sr = new StreamReader("Resources/ContentPersistence.txt");
@@ -35,23 +32,23 @@ namespace UmbracoSystem.ViewModels
 
                         string[] parts = line.Split("---");
 
-                        if (int.TryParse(parts[1], out var id))
+                        if (int.TryParse(parts[1], out int id))
                         {
-                            if (id >= 100 && id <= 299 && parts.Length >= 6 && int.TryParse(parts[3], out var minutes))
+                            if (id >= 100 && id <= 299 && int.TryParse(parts[3], out int minutes))
                             {
                                 Exercise exercise = new Exercise(parts[0], id, parts[2], minutes, parts[4], parts[5]);
                                 exercises.Add(exercise);
                                 if (exercise.ExerciseId > exerciseId)
                                     exerciseId = exercise.ExerciseId;
                             }
-                            else if (id >= 400 && id <= 899 && parts.Length >= 5 && DateTime.TryParse(parts[3], out var date))
+                            else if (id >= 400 && id <= 899 && DateTime.TryParse(parts[3], out DateTime date))
                             {
                                 Event _event = new Event(parts[0], id, parts[2], date, parts[4]);
                                 events.Add(_event);
                                 if (_event.EventId > eventId)
                                     eventId = _event.EventId;
                             }
-                            else if (id >= 300 && id <= 399 && parts.Length >= 4)
+                            else if (id >= 300 && id <= 399)
                             {
                                 AltWorkType altWorkType = new AltWorkType(parts[0], id, parts[2], parts[3]);
                                 altWorkTypes.Add(altWorkType);

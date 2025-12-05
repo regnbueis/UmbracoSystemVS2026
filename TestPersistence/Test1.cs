@@ -10,7 +10,6 @@ namespace TestPersistence
         [TestInitialize]
         public void Setup()
         {
-            // Reset in-memory persistence to avoid file IO and state leakage across tests.
             Persist.exercises = new List<Exercise>();
             Persist.events = new List<Event>();
             Persist.altWorkTypes = new List<AltWorkType>();
