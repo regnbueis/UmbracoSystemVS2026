@@ -19,10 +19,9 @@
     <None Remove="Views\Images\SkureHans.png" />
     <None Remove="Views\Images\tting.mp4" />
     <None Remove="Views\Images\umbraco_wide_logo_blue.png" />
-    <None Remove="Views\Video\cykel.mp4" />
-    <None Remove="Views\Video\squat.mp4" />
+    <None Remove="Views\Video\placement.png" />
     <None Remove="Views\Video\squat.mp4.mkv" />
-    <None Remove="Views\Video\tting.mp4" />
+    <None Remove="Views\Video\Squats.mp4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,13 +37,13 @@
     <Content Include="tting.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Video\cykel.mp4">
+    <Content Include="Views\Video\placement.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Video\squat.mp4">
+    <Content Include="Views\Video\Skulderbladsklem.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Video\tting.mp4">
+    <Content Include="Views\Video\Squats.mp4">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
