@@ -9,6 +9,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\AltWorkType.cs" />
+    <Compile Remove="Models\Employee.cs" />
+    <Compile Remove="Models\Event.cs" />
+    <Compile Remove="Models\Log.cs" />
+    <Compile Remove="ViewModels\AltWorkTypeController.cs" />
+    <Compile Remove="ViewModels\AltWorkTypeRepository.cs" />
+    <Compile Remove="ViewModels\EmployeeController.cs" />
+    <Compile Remove="ViewModels\EmployeeRepository.cs" />
+    <Compile Remove="ViewModels\EventController.cs" />
+    <Compile Remove="ViewModels\EventRepository.cs" />
+    <Compile Remove="ViewModels\LogController.cs" />
+    <Compile Remove="ViewModels\LogRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\ContentPersistence.txt" />
     <None Remove="Resources\EmployeePersistence.txt" />
     <None Remove="Resources\LogPersistence.txt" />

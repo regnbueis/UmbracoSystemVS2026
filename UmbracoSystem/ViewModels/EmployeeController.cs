@@ -20,11 +20,6 @@ namespace UmbracoSystem.ViewModels
 
             foreach (Log log in loggedExercises)
             {
-                //får lige lidt hjælp af LINQ her, fordi vi ellers skulle have været ude
-                //i 40 foreach loops.
-                //result.Any tjekker hele resultslisten igennem
-                //(exercise => erklærer exercise som en lokal variabel, der kun eksisterer
-                //inden for if-statementets condition (scope) - ubekendte i en ligning, basically
                 if (!result.Any(exercise => exercise.ExerciseId == log.ExerciseId))
                 {
                     result.Add(ExerciseRepository.GetById(log.ExerciseId));

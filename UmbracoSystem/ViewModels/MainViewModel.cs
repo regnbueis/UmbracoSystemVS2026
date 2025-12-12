@@ -32,13 +32,13 @@ namespace UmbracoSystem.ViewModels
         public void StartUp()
         {
             Persist.Initialize();
-            EmployeeRepository.Initialize();
-            LogRepository.Initialize();
-            NextEvent = new Event();
-            Employees = new ObservableCollection<Employee>();
+            //EmployeeRepository.Initialize();
+            //LogRepository.Initialize();
+            //NextEvent = new Event();
+            //Employees = new ObservableCollection<Employee>();
             Tagslist = new ObservableCollection<Tag>();
             TagRepository.GetTags();
-            PlacementList();
+            //PlacementList();
             SelectedTag = "";
             FilteredExerciseList = new ObservableCollection<Exercise>();
 
@@ -48,66 +48,66 @@ namespace UmbracoSystem.ViewModels
         }
 
         #region Instantierede controllere
-        EventController eventController = new EventController();
+        //EventController eventController = new EventController();
         ExerciseController exerciseController = new ExerciseController();
         #endregion
 
-        #region Next Upcoming Event stuff
-        private Event _nextEvent;
+        //#region Next Upcoming Event stuff
+        //private Event _nextEvent;
 
-        public Event NextEvent
-        {
-            get { return _nextEvent; }
-            set
-            {
-                _nextEvent = eventController.UpcomingEvent();
-                OnPropertyChanged("NextEvent");
-            }
-        }
-        #endregion
+        //public Event NextEvent
+        //{
+        //    get { return _nextEvent; }
+        //    set
+        //    {
+        //        _nextEvent = eventController.UpcomingEvent();
+        //        OnPropertyChanged("NextEvent");
+        //    }
+        //}
+        //#endregion
 
-        #region Top Five Employees Leaderboard stuff
-        private ObservableCollection<Employee> _employees;
+        //#region Top Five Employees Leaderboard stuff
+        //private ObservableCollection<Employee> _employees;
 
-        public ObservableCollection<Employee> Employees
-        {
-            get { return _employees; }
-            set
-            {
-                _employees = TopFiveEmployees();
-            }
-        }
+        //public ObservableCollection<Employee> Employees
+        //{
+        //    get { return _employees; }
+        //    set
+        //    {
+        //        _employees = TopFiveEmployees();
+        //    }
+        //}
 
-        public List<int> Placement = new List<int>();
+        //public List<int> Placement = new List<int>();
 
-        public void PlacementList()
-        {
-            Placement.Add(1);
-            Placement.Add(2);
-            Placement.Add(3);
-            Placement.Add(4);
-            Placement.Add(5);
-        }
+        //public void PlacementList()
+        //{
+        //    Placement.Add(1);
+        //    Placement.Add(2);
+        //    Placement.Add(3);
+        //    Placement.Add(4);
+        //    Placement.Add(5);
+        //}
 
-        public ObservableCollection<Employee> TopFiveEmployees()
-        {
-            ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
+        //public ObservableCollection<Employee> TopFiveEmployees()
+        //{
+        //    ObservableCollection<Employee> employees = new ObservableCollection<Employee>();
 
-            LogController logController = new LogController();
+        //    LogController logController = new LogController();
 
-            Dictionary<int, int> scoreboard = logController.LoadScoreboard();
-            if (scoreboard.Count > 0)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    Employee employee = EmployeeRepository.GetById(scoreboard.ElementAt(i).Key);
+        //    Dictionary<int, int> scoreboard = logController.LoadScoreboard();
+        //    if (scoreboard.Count > 0)
+        //    {
+        //        for (int i = 0; i < 5; i++)
+        //        {
+        //            Employee employee = EmployeeRepository.GetById(scoreboard.ElementAt(i).Key);
 
-                    employees.Add(employee);
-                }
-            }
-            return employees;
-        }
-        #endregion
+        //            employees.Add(employee);
+        //        }
+        //    }
+        //    return employees;
+        //}
+        //#endregion
 
         #region Choose Exercise stuff
         private ObservableCollection<Tag> _tagslist;
@@ -169,23 +169,23 @@ namespace UmbracoSystem.ViewModels
 
         #endregion
 
-        public void CreateEmployees()
-        {
-            EmployeeRepository.Add("Leif Dixon", false);
-            EmployeeRepository.Add("Jan Brown", false);
-            EmployeeRepository.Add("Lars ???", false);
-            EmployeeRepository.Add("Peter Obling", false);
-            EmployeeRepository.Add("Per Valter", false);
-        }
+        //public void CreateEmployees()
+        //{
+        //    EmployeeRepository.Add("Leif Dixon", false);
+        //    EmployeeRepository.Add("Jan Brown", false);
+        //    EmployeeRepository.Add("Lars ???", false);
+        //    EmployeeRepository.Add("Peter Obling", false);
+        //    EmployeeRepository.Add("Per Valter", false);
+        //}
 
-        public void LogActivity()
-        {
-            LogRepository.Add(DateTime.Now, 905, 101, 1);
-            LogRepository.Add(DateTime.Now, 906, 101, 1);
-            LogRepository.Add(DateTime.Now, 907, 101, 1);
-            LogRepository.Add(DateTime.Now, 908, 101, 1);
-            LogRepository.Add(DateTime.Now, 909, 101, 1);
-        }
+        //public void LogActivity()
+        //{
+        //    LogRepository.Add(DateTime.Now, 905, 101, 1);
+        //    LogRepository.Add(DateTime.Now, 906, 101, 1);
+        //    LogRepository.Add(DateTime.Now, 907, 101, 1);
+        //    LogRepository.Add(DateTime.Now, 908, 101, 1);
+        //    LogRepository.Add(DateTime.Now, 909, 101, 1);
+        //}
 
         public void CreateExercises()
         {
